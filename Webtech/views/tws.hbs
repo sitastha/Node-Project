@@ -1,0 +1,31 @@
+<h1 class="title">Vos twitts</h1>
+
+<div class="jumbotron">
+  <div class="container">
+    <form action="/tws" method="POST">
+      <div class="form-group">
+        <label for="addTw">Ajouter un twitt</label>
+        <textarea class="form-control" id="addTw"name="message" rows="3"></textarea>
+      </div>
+      <p class="lead">
+        <button type="submit" class="btn btn-primary btn-lg" >Add</a>
+       <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Ajouter</a>-->
+      </p>
+    </form>
+    </div>
+</div>
+
+<div class="card-columns">
+  {{#each tws}}
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text">{{{this.message}}}</p>
+          <footer class="blockquote-footer">
+            <small class="text-muted">
+              {{{ formatDate this.createdAt }}}
+            </small>
+          </footer>
+      </div>
+    </div>
+  {{/each}}
+</div>
