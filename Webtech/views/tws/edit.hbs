@@ -1,0 +1,13 @@
+<div class="col-12">
+    <h1 class="title">Twitt {{tw._id}}</h1>
+    <form action="/tws/update/{{tw._id}}" method="post">
+        <div class="form-group">
+            <textarea class="form-control" name="message" id="addTw" rows="3">{{{tw.message}}}</textarea>
+        </div>
+
+        <div align="right">
+            <button class="btn btn-sm btn-primary">Save</button>
+            <a href="/tws" class="btn btn-sm btn-secondary">Return</a>
+        </div>
+    </form>
+</div>

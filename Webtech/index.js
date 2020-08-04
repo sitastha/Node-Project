@@ -23,17 +23,27 @@ app.use(bodyParser.json());
 
 app.engine('.hbs', exphbs({
     extname: '.hbs',
+    layoutsDir: path.join(__dirname, 'views/layouts'),
     defaultLayout: 'main',
     helpers: {
         formatDate: function (date, format) {
             return moment(date, "YYYYMMDD").fromNow();
+        },
+        isEmpty: (value) => {
+            return value === '';
+        },
+        isNotEmpty: (value) => {
+            return value !== '';
         }
     }
 }));
 app.set('view engine', '.hbs');
 
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
+app.use(express.static(__dirname + '/node_modules/jquery/dist'));
+app.use(express.static(__dirname + '/node_modules/@fortawesome/fontawesome-free'));
 
 app.use('/tws', twsRouter);
 app.use('/api/tws', twsApiRouter);

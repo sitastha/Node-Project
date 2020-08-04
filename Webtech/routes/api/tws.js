@@ -69,7 +69,7 @@ Router.delete('/:twId', (req, res) => {
     })
         .exec()
         .then(result => {
-            res.status(200).json({ 'message': 'Suppression du twitt !' });
+            res.status(200).json({ 'message': 'This has been deleted !' });
         })
         .catch(err => {
             error = err;
@@ -96,9 +96,8 @@ Router.patch('/:twId', (req, res) => {
                 res.status(500).json({ error: err });
             });
     } else {
-        res.status(500).json({ error: 'Merci de remplire tous les champs' });
+        res.status(500).json({ error: 'updated' });
     }
 })
-
 module.exports = Router;
 
